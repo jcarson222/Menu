@@ -81,6 +81,14 @@ const menu = [
     img: "./images/item-10.jpeg",
     desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
   },
+  {
+    id: 11,
+    title: "Cabernet Sauvignon (Bottle)",
+    category: "Wine",
+    price: 15.50,
+    img: "./images/item-11.jpg",
+    desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
+  },
 ];
 
 //select section-center div && filter buttons
@@ -105,7 +113,7 @@ const displayMenuItems = (menuItems) => {
               <div class="item-info">
                <header>
                 <h4>${item.title}</h4>
-                <h4 class="price">$${item.price}</h4>
+                <h4 class="price">$${item.price.toFixed(2)}</h4>
                </header>
                <p class="item-text">
                 ${item.desc}
@@ -128,7 +136,9 @@ const displayMenuButtons = () => {
   }, ["all"]);
 
   const categoryBtns = categories.map((category) => {
-    return `<button class="filter-btn" type="button" data-id=${category}>${category}</button>`
+    return `<button class="filter-btn" type="button" data-id=${category}>
+            ${category}
+            </button>`
   }).join("");
 
   container.innerHTML = categoryBtns;
